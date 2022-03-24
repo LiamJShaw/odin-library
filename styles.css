@@ -15,29 +15,33 @@ body {
 
 .modal-container {
     position: absolute;
-    /* display: none; */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.479);
+    background-color: rgba(0, 0, 0, 0.575);
 }
 
 .modal.add-book {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-
+    justify-content: space-evenly;
+    align-items: center;
 
     padding: 1rem;
     margin-bottom: 5rem;
+
     width: 30rem;
     height: 30rem;
     max-height: 50%;
     max-width: 75%;
+
     background-color: #242831;
-    border-top: solid 5rem #2B303A;
+    border-top: solid 3rem #2B303A;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 }
 
 .modal.add-book div {
@@ -48,6 +52,27 @@ body {
 }
 
 .modal.add-book button {
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: large;
+    background-color: transparent;
+    color: inherit;
+    border: solid white;
+    border-radius: 25px;
+}
+
+.modal.add-book button:hover {
+    background-color: white;
+    color: #2B303A;
+    cursor: pointer;
+}
+
+.modal.add-book label {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.modal.add-book input {
     padding: 1rem 2rem;
 }
 
@@ -81,6 +106,12 @@ nav.actions button {
     border-radius: 25px;
 }
 
+nav.actions button:hover {
+    background-color: white;
+    color: #2B303A;
+    cursor: pointer;
+}
+
 section.books {
     background-color: #EAEBED;
 
@@ -104,6 +135,8 @@ section.books {
     max-width: 12rem;
     height: 16rem;
     border-left: solid 1rem #F6AE2D;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .book .title {

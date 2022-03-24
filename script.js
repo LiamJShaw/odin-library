@@ -1,10 +1,8 @@
-const booksSection = document.querySelector(".books");
-
-
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 }
 
 Book.prototype.bookInfo = function () {
@@ -14,8 +12,12 @@ Book.prototype.bookInfo = function () {
 // Store books
 const books = [];
 
+const booksSection = document.querySelector(".books");
+
 // Display books
 function updateDisplay() {
+
+    booksSection.innerHTML = "";
 
     books.forEach(book => {
         const bookContainer = document.createElement("div");
@@ -63,21 +65,48 @@ function updateDisplay() {
 }
 
 // Add book
-function addBook() {
-    return new Book("Title", "Author", 316);
+const modalContainer = document.querySelector(".modal-container");
+
+const addBookButton = document.querySelector(".add-book-dialog");
+
+addBookButton.addEventListener("click", () => {
+    modalContainer.style.display = "flex";
+});
+
+const userBookTitle = document.querySelector(".book-title");
+const userBookAuthor = document.querySelector(".book-author");
+const userBookPages = document.querySelector(".book-pages");
+const userBookRead = document.querySelector(".book-read");
+
+const confirmAddButton = document.querySelector(".submit");
+
+confirmAddButton.addEventListener("click", () => {
+
+    books.push(addBook(userBookTitle.value,
+                       userBookAuthor.value,
+                       userBookPages.value,
+                       userBookRead.checked));
+    
+    updateDisplay();
+    modalContainer.style.display = "none";
+
+    userBookTitle.value = "";
+    userBookAuthor.value = "";
+    userBookPages.value = "";
+    userBookRead.checked = false;
+});
+
+const cancelAddButton = document.querySelector(".cancel");
+cancelAddButton.addEventListener("click", () => {
+    modalContainer.style.display = "none";
+});
+
+function addBook(title, author, pages, read) {
+    return new Book(title, author, pages, read);
 }
 
 // Fill books array with dummy data
-books.push(addBook());
-books.push(addBook());
-books.push(addBook());
-
-books.push(addBook());
-books.push(addBook());
-books.push(addBook());
-
+// books.push(addBook("The Hobbit", "J.R.R. Tolkien", 295, true));
 
 updateDisplay();
-
-console.table(books);
 
