@@ -14,7 +14,7 @@ body {
 header {
     background-color: #2B303A;
 
-    padding: 5rem;
+    padding: 2.5rem 5rem 1rem 5rem;
     text-align: center;
 
     font-size: x-large;
@@ -23,7 +23,7 @@ header {
 }
 
 nav.actions {
-    background-color: #7C7C7C;
+    background-color: #2B303A;
 
     display: flex;
     justify-content: center;
@@ -31,15 +31,15 @@ nav.actions {
 }
 
 nav.actions button {
-    padding: 5rem 1rem;
+    padding: 1rem 3rem;
     margin: 1rem;
 
     font-size: x-large;
     font-weight: bold;
-    background-color: #222222;
+    background-color: transparent;
     color: rgb(236, 236, 236);
-    border: none;
-    border-left: solid #F6AE2D;
+    border: solid 0.2rem white;
+    border-radius: 25px;
 }
 
 section.books {
@@ -80,4 +80,11 @@ section.books {
 .book .read {
     grid-row-start: 1;
     
+}
+
+footer {
+    background-color: black;
+    opacity: 0.4;
+    text-align: center;
+    padding: 5px
 }
