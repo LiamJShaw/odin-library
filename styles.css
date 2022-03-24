@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 9fr;
+    color: white;
+}
+
+header {
+    background-color: #2B303A;
+
+    padding: 5rem;
+    text-align: center;
+
+    font-size: x-large;
+    
+
+}
+
+nav.actions {
+    background-color: #7C7C7C;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav.actions button {
+    padding: 5rem 1rem;
+    margin: 1rem;
+
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #222222;
+    color: rgb(236, 236, 236);
+    border: none;
+    border-left: solid #F6AE2D;
+}
+
+section.books {
+    background-color: #EAEBED;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    padding: 5rem 3rem;
+}
+
+.book {
+
+    display: grid;
+    grid-template-rows: 10px 3fr 1fr 1fr;
+
+    background-color: #2B303A;
+    margin: 2rem;
+    padding: 5rem 3rem;
+    width: 4rem;
+    height: 6rem;
+    border-left: solid 1rem #F6AE2D;
+}
+
+.book .title {
+    grid-row-start: 2;
+}
+
+.book .author {
+    grid-row-start: 3;
+}
+
+.book .pages {
+    grid-row-start: 4;
+}
+
+.book .read {
+    grid-row-start: 1;
+    
+}
