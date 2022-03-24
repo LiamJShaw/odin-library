@@ -11,15 +11,54 @@ body {
     color: white;
 }
 
+/* Modal */
+
+.modal-container {
+    position: absolute;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.479);
+}
+
+.modal.add-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    padding: 1rem;
+    margin-bottom: 5rem;
+    width: 30rem;
+    height: 30rem;
+    max-height: 50%;
+    max-width: 75%;
+    background-color: #242831;
+    border-top: solid 5rem #2B303A;
+}
+
+.modal.add-book div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.modal.add-book button {
+    padding: 1rem 2rem;
+}
+
+
 header {
-    background-color: #2B303A;
+    background-color: #242831;
 
     padding: 2.5rem 5rem 1rem 5rem;
     text-align: center;
 
     font-size: x-large;
-    
-
 }
 
 nav.actions {
@@ -56,12 +95,14 @@ section.books {
 
     display: grid;
     grid-template-rows: 10px 3fr 1fr 1fr;
+    align-items: center;
 
     background-color: #2B303A;
     margin: 2rem;
-    padding: 5rem 3rem;
-    width: 4rem;
-    height: 6rem;
+    padding: 1.5rem;
+    min-width: 10rem;
+    max-width: 12rem;
+    height: 16rem;
     border-left: solid 1rem #F6AE2D;
 }
 
@@ -77,8 +118,9 @@ section.books {
     grid-row-start: 4;
 }
 
-.book .read {
+.book .read-container {
     grid-row-start: 1;
+    justify-self: end;
     
 }
 
