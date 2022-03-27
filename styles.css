@@ -125,7 +125,7 @@ section.books {
 .book {
 
     display: grid;
-    grid-template-rows: 10px 3fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr 1fr 10px;
     align-items: center;
 
     background-color: #2B303A;
@@ -152,9 +152,22 @@ section.books {
 }
 
 .book .read-container {
-    grid-row-start: 1;
+    grid-row-start: -1;
     justify-self: end;
     
+}
+
+.book .delete-button {
+    grid-row-start: 1;
+    justify-self: end;
+    padding: 0.3rem 0.5rem;
+
+    color: white;
+    background-color: red;
+    border-style: solid;
+    border-color: darkred;
+    font-weight: bold;
+    font-size: large;
 }
 
 footer {

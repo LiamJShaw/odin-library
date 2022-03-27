@@ -22,6 +22,13 @@ function updateDisplay() {
     books.forEach(book => {
         const bookContainer = document.createElement("div");
         bookContainer.classList.add("book");
+        bookContainer.classList.ad
+
+        // Delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.textContent = "X";
+        bookContainer.appendChild(deleteButton);
         
         // Title
         const bookTitle = document.createElement("h2");
@@ -82,10 +89,8 @@ const confirmAddButton = document.querySelector(".submit");
 
 confirmAddButton.addEventListener("click", () => {
 
-    books.push(addBook(userBookTitle.value,
-                       userBookAuthor.value,
-                       userBookPages.value,
-                       userBookRead.checked));
+    books.push(new Book(userBookTitle.value, userBookAuthor.value,
+                        userBookPages.value, userBookRead.checked));
     
     updateDisplay();
     modalContainer.style.display = "none";
@@ -100,13 +105,4 @@ const cancelAddButton = document.querySelector(".cancel");
 cancelAddButton.addEventListener("click", () => {
     modalContainer.style.display = "none";
 });
-
-function addBook(title, author, pages, read) {
-    return new Book(title, author, pages, read);
-}
-
-// Fill books array with dummy data
-// books.push(addBook("The Hobbit", "J.R.R. Tolkien", 295, true));
-
-updateDisplay();
 
