@@ -10,7 +10,7 @@ Book.prototype.bookInfo = function () {
 }
 
 // Store books
-const books = [];
+let books = [];
 
 // Handle clicks
 document.addEventListener("click", (e) => {
@@ -21,6 +21,7 @@ document.addEventListener("click", (e) => {
         console.log("delet");
         books.splice(e.target.parentNode.getAttribute("data-index"), 1);
         updateDisplay();
+        updateLocalStorage();
     }
 })
 
@@ -112,8 +113,10 @@ confirmAddButton.addEventListener("click", () => {
 
     books.push(new Book(userBookTitle.value, userBookAuthor.value,
                         userBookPages.value, userBookRead.checked));
+
     
     updateDisplay();
+    updateLocalStorage();
     modalContainer.style.display = "none";
 
     userBookTitle.value = "";
@@ -127,3 +130,20 @@ cancelAddButton.addEventListener("click", () => {
     modalContainer.style.display = "none";
 });
 
+// Store books[] in local storage
+function updateLocalStorage() {
+    localStorage.setItem("books", JSON.stringify(books));
+}
+
+function readLocalStorage() {
+
+    console.log("local storage check");
+
+    if (localStorage.getItem("books")) {
+        books = JSON.parse(localStorage.getItem("books"));
+        updateDisplay();
+    }
+}
+
+// Checks for books stored in local storage on page load
+readLocalStorage();
