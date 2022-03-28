@@ -12,6 +12,20 @@ Book.prototype.bookInfo = function () {
 // Store books
 const books = [];
 
+// Handle clicks
+document.addEventListener("click", (e) => {
+
+    console.log(e.target);
+
+    if (e.target.getAttribute("data-action") === "delete") {
+        console.log("delet");
+        books.splice(e.target.parentNode.getAttribute("data-index"), 1);
+        updateDisplay();
+    }
+})
+
+
+
 const booksSection = document.querySelector(".books");
 
 // Display books
@@ -19,17 +33,12 @@ function updateDisplay() {
 
     booksSection.innerHTML = "";
 
+    let bookCounter = 0;
+
     books.forEach(book => {
         const bookContainer = document.createElement("div");
         bookContainer.classList.add("book");
-        bookContainer.classList.ad
-
-        // Delete button
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-button");
-        deleteButton.textContent = "X";
-        bookContainer.appendChild(deleteButton);
-        
+       
         // Title
         const bookTitle = document.createElement("h2");
         bookTitle.classList.add("title");
@@ -68,6 +77,18 @@ function updateDisplay() {
         
         // Add book to page
         booksSection.appendChild(bookContainer);
+
+        // Delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.textContent = "X";
+        deleteButton.setAttribute("data-action", "delete");
+
+        bookContainer.appendChild(deleteButton);
+
+        // Add data attribute for delete button
+        bookContainer.setAttribute("data-index", bookCounter)
+        bookCounter = bookCounter + 1;
     })
 }
 
