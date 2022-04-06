@@ -1,12 +1,15 @@
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+class Book {
 
-Book.prototype.bookInfo = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages`
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    bookInfo() {
+        return `${this.title} by ${this.author}, ${this.pages} pages`
+    }
 }
 
 // Store books
